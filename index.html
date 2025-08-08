@@ -211,13 +211,15 @@
 
 
             <!-- Arrow Buttons -->
-            <div class="hidden md:block">
-                <button id="prevBtn"
-                    class="absolute top-1/2 lg:left-10 left-20 transform -translate-y-1/2 text-[#000] text-2xl bg-[#fff] hover:bg-black/70 w-14 h-14 rounded-full flex justify-center items-center">
+            <div class="hidden lg:block">
+
+                <button id="preBtn"
+                    class="absolute top-1/2 lg:left-10 left-20 transform -translate-y-1/2 text-[#000] text-2xl bg-[#fff] hover:bg-[#d2d0d0] w-14 h-14 rounded-full flex justify-center items-center">
                     <i class="fas fa-arrow-left"></i>
                 </button>
+
                 <button id="nextBtn"
-                    class="absolute top-1/2 right-40 transform -translate-y-1/2 text-[#000] text-2xl bg-[#fff] hover:bg-black/70 w-14 h-14 rounded-full flex justify-center items-center">
+                    class="absolute top-1/2 right-40 transform -translate-y-1/2 text-[#000] text-2xl bg-[#fff] hover:bg-[#d2d0d0] w-14 h-14 rounded-full flex justify-center items-center">
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
@@ -225,12 +227,17 @@
 
 
             <div id="heroDots" class="absolute lg:bottom-16 bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-                <button data-index="0" class="dot w-3 h-3 rounded-full bg-white opacity-50 transition"></button>
-                <button data-index="1" class="dot w-3 h-3 rounded-full bg-white opacity-50 transition"></button>
-                <button data-index="2" class="dot w-3 h-3 rounded-full bg-white opacity-50 transition"></button>
-                <button data-index="2" class="dot w-3 h-3 rounded-full bg-white opacity-50 transition"></button>
-                <button data-index="2" class="dot w-3 h-3 rounded-full bg-white opacity-50 transition"></button>
+                <button data-index="0"
+                    class="dot w-5 h-5 rounded-full bg-transparent border-2 border-white transition"></button>
+                <button data-index="1"
+                    class="dot w-5 h-5 rounded-full bg-transparent border-2 border-white transition"></button>
+                <button data-index="2"
+                    class="dot w-5 h-5 rounded-full bg-transparent border-2 border-white transition"></button>
+                <button data-index="3"
+                    class="dot w-5 h-5 rounded-full bg-transparent border-2 border-white transition"></button>
             </div>
+
+
 
 
 
@@ -263,12 +270,17 @@
             </div>
 
         </div>
+
     </section>
 
     <section>
-        <div class="relative w-full  lg:h-screen bg-cover bg-center flex items-center justify-end px-4 md:px-8"
+        <div class="relative w-full  lg:h-[120vh] bg-cover bg-center flex items-center justify-end px-4 md:px-8"
             style="background-image: url('assests/secbanner.png');">
 
+            <div class="absolute top-28 left-[39%] perspective">
+                <img src="assests/2 Harrison Monogram.png" alt="Harrison Logo"
+                    class="w-44 custom-tilt drop-shadow-[10px_10px_10px_rgba(0,0,0,20)]">
+            </div>
             <!-- Overlay -->
             <div
                 class="bg-[#49245f59]/30 py-4  md:py-8 max-w-[355px] px-4 flex flex-col gap-4 text-white mr-10 lg:my-0 my-10">
@@ -1123,7 +1135,7 @@
     </footer>
 
 
-    <script src="mainscript.js"></script>
+    <script src="mainscript.js" defer></script>
 </body>
 
 </html>

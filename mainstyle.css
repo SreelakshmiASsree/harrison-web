@@ -48,3 +48,16 @@
   position: relative;
   width: 100%;
 }
+
+#heroDots, #preBtn, #nextBtn {
+  z-index: 50;
+  pointer-events: auto;
+}
+
+  .perspective {
+    perspective: 1000px; /* Creates depth */
+  }
+  .custom-tilt {
+    transform: rotateY(-47deg) rotateX(20deg) rotateZ(-22deg);
+    transform-origin: center;
+  }

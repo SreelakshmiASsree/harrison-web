@@ -104,61 +104,73 @@ function setupInfiniteLeftSlider(sliderId, direction = 'left', speed = 0.5) {
 setupInfiniteLeftSlider('slider2', 'left', 0.4); // scroll left-to-right
 
 
-const sliderImages = [
-  "assests/herothree.jpeg",
-  "assests/heroone.png",
-  "assests/herotwo.png",
-  "assests/herothree.png",
-];
 
-let currentIndex = 0;
-const heroSlider = document.getElementById("heroSlider");
-const dots = document.querySelectorAll("#heroDots .dot");
+document.addEventListener("DOMContentLoaded", () => {
+  const sliderImages = [
+    "assests/herothree.jpeg",
+    "assests/heroone.png",
+    "assests/herotwo.png",
+    "assests/herothree.png",
+  ];
 
-// Function to update background and active dot
-function updateSlider(index) {
-  currentIndex = index;
-  heroSlider.style.backgroundImage = `url('${sliderImages[currentIndex]}')`;
-  updateDots();
-}
+  let currentIndex = 0;
+  const heroSlider = document.getElementById("heroSlider");
+  const dots = document.querySelectorAll("#heroDots .dot");
+  const nextBtn = document.getElementById("nextBtn");
+  const preBtn = document.getElementById("preBtn");
 
-// Function to highlight active dot
+  function updateSlider(index) {
+    currentIndex = index;
+    heroSlider.style.backgroundImage = `url('${sliderImages[currentIndex]}')`;
+    updateDots();
+    console.log(`Slide changed to: ${currentIndex}`);
+  }
+
 function updateDots() {
   dots.forEach((dot, i) => {
-    dot.classList.remove("opacity-100");
-    dot.classList.add("opacity-50");
     if (i === currentIndex) {
-      dot.classList.remove("opacity-50");
-      dot.classList.add("opacity-100");
+      dot.classList.add("bg-white");
+      dot.classList.remove("bg-transparent");
+    } else {
+      dot.classList.add("bg-transparent");
+      dot.classList.remove("bg-white");
     }
   });
 }
 
-// Auto-change every 5 seconds
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % sliderImages.length;
-  updateSlider(currentIndex);
-}, 5000);
-
-// Allow click on dots to switch slides
-dots.forEach((dot, i) => {
+dots.forEach((dot) => {
   dot.addEventListener("click", () => {
-    updateSlider(i);
+    const index = parseInt(dot.dataset.index);
+    updateSlider(index);
   });
 });
 
-// Init first image and dot
-updateSlider(0);
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % sliderImages.length;
+      updateSlider(currentIndex);
+    });
+  }
 
+  if (preBtn) {
+    preBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+      updateSlider(currentIndex);
+    });
+  }
 
-document.getElementById("nextBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % sliderImages.length;
-  updateSlider(currentIndex); // use your existing function
-});
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      updateSlider(i);
+    });
+  });
 
-document.getElementById("prevBtn").addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
-  updateSlider(currentIndex); // use your existing function
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % sliderImages.length;
+    updateSlider(currentIndex);
+  }, 5000);
+
+  updateSlider(0);
 });
 
 
