@@ -1,0 +1,50 @@
+.custom_container{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0px 20px;
+
+}
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-slide {
+    animation: slide 30s linear infinite;
+  }
+
+
+    .slider-track {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .slider-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .slider-track > * {
+    flex-shrink: 0;
+  }
+  
+  .slider-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content; /* Optional but helpful */
+}
+
+.slider-wrapper, 
+#slider1, 
+#slider2 {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
